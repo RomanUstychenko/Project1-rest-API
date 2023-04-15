@@ -12,6 +12,9 @@ const contactSchema = new Schema(
       type: String,
       // required: true,
     },
+    description: {
+      type: String,
+    },
     phone: {
       type: String,
       required: true,
@@ -38,6 +41,7 @@ const addSchema = Joi.object({
   email: Joi.string()
   // .required()
   ,
+  description: Joi.string(),
   phone: Joi.string().required(),
   favorite: Joi.boolean(),
 });
