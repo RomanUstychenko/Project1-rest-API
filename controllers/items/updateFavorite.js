@@ -1,4 +1,4 @@
-const {Contact} = require("../../models/contact");
+const {Item} = require("../../models/item");
 const { HttpError } = require("../../helpers");
 
 const updateFavorite = async (req, res, next) => {
@@ -7,7 +7,7 @@ const updateFavorite = async (req, res, next) => {
   if (!req.body) {
     throw HttpError(400, "missing field favorite");
   }
-  const result = await Contact.findByIdAndUpdate(id, req.body, { new: true });
+  const result = await Item.findByIdAndUpdate(id, req.body, { new: true });
   if (!result) {
     throw HttpError(404, "Not Found");
   }

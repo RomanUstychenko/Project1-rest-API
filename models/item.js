@@ -2,9 +2,9 @@ const { Schema, model } = require("mongoose");
 const { handleMongooseError } = require("../helpers");
 const Joi = require("joi");
 
-const contactSchema = new Schema(
+const itemSchema = new Schema(
   {
-    name: {
+    itemName: {
       type: String,
       required: true,
     },
@@ -15,9 +15,15 @@ const contactSchema = new Schema(
     description: {
       type: String,
     },
-    phone: {
+    price: {
       type: String,
       required: true,
+    },
+    itemImg: {
+      type: String,
+    },
+    section: {
+      type: String,
     },
     favorite: {
       type: Boolean,
@@ -32,17 +38,19 @@ const contactSchema = new Schema(
   { versionKey: false }
 );
 
-contactSchema.post("save", handleMongooseError);
+itemSchema.post("save", handleMongooseError);
 
-const Contact = model("contact", contactSchema);
+const Item = model("item", itemSchema);
 
 const addSchema = Joi.object({
-  name: Joi.string().required(),
+  itemName: Joi.string().required(),
   email: Joi.string()
   // .required()
   ,
   description: Joi.string(),
-  phone: Joi.string().required(),
+  price: Joi.string().required(),
+  itemImg: Joi.string(),
+  section: Joi.string(),
   favorite: Joi.boolean(),
 });
 
@@ -56,6 +64,6 @@ const schemas = {
 }
 
 module.exports = {
-  Contact,
+  Item,
   schemas
 };
