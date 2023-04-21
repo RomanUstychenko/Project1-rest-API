@@ -3,7 +3,8 @@ const getItemById = require("./getItemById");
 const addItem = require("./addItem");
 const updateItem = require("./updateItem");
 const removeItem = require("./removeItem");
-const updateFavorite = require("./updateFavorite")
+const updateFavorite = require("./updateFavorite");
+const getItemBySection = require("./getItemBySection");
 module.exports = {
   listItems,
   getItemById,
@@ -11,4 +12,5 @@ module.exports = {
   updateItem,
   removeItem,
   updateFavorite,
+  getItemBySection,
 };
