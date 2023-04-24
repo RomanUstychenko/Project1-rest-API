@@ -20,9 +20,8 @@ const getItemBySection = async (req, res) => {
     // .skip(skip);
   
   if (result.length === 0) {
-
-    throw [""]
-    // HttpError(404, `No items in "${category}" section`);
+    
+    throw HttpError(404, `No items in "${category}" section`);
   }   
     
   res.json(result);
