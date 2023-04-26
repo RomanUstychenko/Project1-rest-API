@@ -54,12 +54,23 @@ const addSchema = Joi.object({
   favorite: Joi.boolean(),
 });
 
+const updSchema = Joi.object({
+  itemName: Joi.string(),
+  email: Joi.string(),
+  description: Joi.string(),
+  price: Joi.string(),
+  itemImg: Joi.string(),
+  section: Joi.string(),
+  favorite: Joi.boolean(),
+});
+
 const updateFavoriteScheme = Joi.object({
   favorite: Joi.boolean().required(),
 });
 
 const schemas = {
   addSchema,
+  updSchema,
   updateFavoriteScheme
 }
 
