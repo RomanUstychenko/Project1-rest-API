@@ -58,6 +58,7 @@ const updSchema = Joi.object({
   itemName: Joi.string(),
   email: Joi.string(),
   description: Joi.string(),
+  // .empty('').default('default value'),
   price: Joi.string(),
   itemImg: Joi.string(),
   section: Joi.string(),

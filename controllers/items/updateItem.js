@@ -7,6 +7,7 @@ const updateItem = async (req, res, next) => {
   if (!result) {
     throw HttpError(404, "Not Found");
   }
+  console.log("result", result)
   res.json(result);
 };
 module.exports = updateItem;

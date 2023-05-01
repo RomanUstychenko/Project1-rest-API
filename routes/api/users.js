@@ -11,6 +11,7 @@ router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verify))
 router.post("/verify", validate(schemas.emailSchema), ctrlWrapper(ctrl.resendVerify))
 
 router.post("/login", validate(schemas.loginSchema), ctrlWrapper(ctrl.login))
+router.get("/", ctrlWrapper(ctrl.getAllUser))
 router.get("/current", authenticate, ctrlWrapper(ctrl.getCurrent))
 
 router.post("/logout", authenticate, ctrlWrapper(ctrl.logout))

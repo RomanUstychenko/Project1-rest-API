@@ -6,7 +6,7 @@ const { validate, isValidId, authenticate } = require("../../middlewares");
 const {schemas} = require("../../models/item");
 
 router.get("/", authenticate, ctrlWrapper(ctrl.listItems));
-router.get("/:category", ctrlWrapper(ctrl.getItemBySection));
+router.get("/:category",authenticate, ctrlWrapper(ctrl.getItemBySection));
 
 router.get("/:id", authenticate, isValidId, ctrlWrapper(ctrl.getItemById));
 
