@@ -21,6 +21,7 @@ sectionSchema.post("save", handleMongooseError);
 
 const Section = model("section", sectionSchema);
 
+
 const addSectionSchema = Joi.object({
     category: Joi.string().required(),
 });
