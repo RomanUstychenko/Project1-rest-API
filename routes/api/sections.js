@@ -5,10 +5,10 @@ const { ctrlWrapper } = require("../../helpers");
 const { validate, isValidId, authenticate } = require("../../middlewares");
 const {schemas} = require("../../models/sections");
 
-router.get("/:owner",  ctrlWrapper(ctrl.getSectionsByName));
+router.get("/:owner", ctrlWrapper(ctrl.getSectionsByName));
 router.get("/", authenticate, ctrlWrapper(ctrl.listSection));
 
-router.get("/:id", authenticate, isValidId, ctrlWrapper(ctrl.getSectionById));
+// router.get("/:id", authenticate, isValidId, ctrlWrapper(ctrl.getSectionById));
 
 
 
