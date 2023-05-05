@@ -4,7 +4,7 @@ const {HttpError, buildQuery} = require("../../helpers");
 const getItemBySection = async (req, res) => {
     const { category } = req.params;
 //   const { section } = req.params;
-
+// console.log("категорі", category)
 //   // Pagination--------------
 //   const { page = 1, limit = 8} = req.query;
 //   const skip = (page - 1) * limit;
