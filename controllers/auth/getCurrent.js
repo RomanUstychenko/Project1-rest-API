@@ -1,10 +1,12 @@
 const getCurrent = (req, res) => {
-  const { 
+  const {
+    _id, 
     email, 
     name, 
     avatarURL, 
     verify } = req.user;
   res.json({
+    _id,
     email,
     name, 
     avatarURL,
