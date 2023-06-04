@@ -9,13 +9,15 @@ const updateUser = async (req, res) => {
         if (!user) {
             throw HttpError(404)
         }
-        const { name, email, verify } = user;
+        const { name, email, verify, logoURL, _id } = user;
         
         res.status(200).json({
             user: {
                 name,
                 email,
                 verify,
+                logoURL,
+                _id
             
             }
         })  
@@ -28,14 +30,15 @@ const updateUser = async (req, res) => {
     if (!user) {
         throw HttpError(404)
     }
-    const { name, email, verify } = user;
+    const { name, email, verify, _id } = user;
 
     res.status(200).json({
         user: {
             name,
             email,
             verify, 
-            logoURL
+            logoURL,
+            _id
         }
     })    
 }
