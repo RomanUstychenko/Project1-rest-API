@@ -15,7 +15,7 @@ router.get("/:id", authenticate, isValidId, ctrlWrapper(ctrl.getItemById));
 
 router.post("/", authenticate, validate(schemas.addSchema), ctrlWrapper(ctrl.addItem));
 
-router.put("/:id", authenticate, isValidId, validate(schemas.updSchema), ctrlWrapper(ctrl.updateItem));
+router.patch("/:id", authenticate, isValidId, validate(schemas.updSchema), ctrlWrapper(ctrl.updateItem));
 
 router.patch("/:id/favorite", authenticate, isValidId, validate(schemas.updateFavoriteScheme), ctrlWrapper(ctrl.updateFavorite));
 
