@@ -3,13 +3,13 @@ const getCurrent = (req, res) => {
     _id, 
     email, 
     name, 
-    avatarURL, 
+    logoURL, 
     verify } = req.user;
   res.json({
     _id,
     email,
     name, 
-    avatarURL,
+    logoURL,
     verify,
   });
 };

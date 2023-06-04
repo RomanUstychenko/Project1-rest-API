@@ -22,11 +22,11 @@ const updateAvatar = async (req, res) => {
   const resultUpload = path.join(avatarsDir, avatarName);
 
   await fs.rename(tempUpload, resultUpload);
-  const avatarURL = path.join("avatars", avatarName);
-  await User.findByIdAndUpdate(_id, { avatarURL });
+  const logoURL = path.join("avatars", avatarName);
+  await User.findByIdAndUpdate(_id, { logoURL });
 
   res.json({
-    avatarURL,
+    logoURL,
   });
 };
 

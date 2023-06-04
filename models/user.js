@@ -29,7 +29,7 @@ const userShema = new Schema (
         token: {
           type: String,
         },
-        avatarURL: {
+        logoURL: {
           type: String,
           required: true,
         },

@@ -14,12 +14,12 @@ const register = async (req, res) => {
   }
  
   const hashPassword = await bcryptjs.hash(password, 10);
-  const avatarURL = gravatar.url(email);
+  const logoURL = gravatar.url(email);
   const verificationToken = nanoid();
   const newUser = await User.create({
     ...req.body,
     password: hashPassword,
-    avatarURL,
+    logoURL,
     verificationToken,
   });
   const verifyEmail = {
@@ -32,7 +32,7 @@ const register = async (req, res) => {
   res.status(201).json({
     name: newUser.name,
     email: newUser.email,
-    avatarURL: newUser.avatarURL,
+    logoURL: newUser.logoURL,
     verify: newUser.verify,
   });
 };
