@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ctrl = require("../../controllers/items");
 const { ctrlWrapper } = require("../../helpers");
-const { validate, isValidId, authenticate } = require("../../middlewares");
+const { validate, isValidId, authenticate, upload } = require("../../middlewares");
 const {schemas} = require("../../models/item");
 
 router.get("/live/:owner", ctrlWrapper(ctrl.LivelistItems));
@@ -15,9 +15,9 @@ router.get("/:id", authenticate, isValidId, ctrlWrapper(ctrl.getItemById));
 
 router.post("/", authenticate, validate(schemas.addSchema), ctrlWrapper(ctrl.addItem));
 
-router.patch("/:id", authenticate, isValidId, validate(schemas.updSchema), ctrlWrapper(ctrl.updateItem));
+router.patch("/:id", authenticate, upload.single('imageURL'), isValidId, validate(schemas.updSchema), ctrlWrapper(ctrl.updateItem));
 
-router.patch("/:id/favorite", authenticate, isValidId, validate(schemas.updateFavoriteScheme), ctrlWrapper(ctrl.updateFavorite));
+// router.patch("/:id/favorite", authenticate, isValidId, validate(schemas.updateFavoriteScheme), ctrlWrapper(ctrl.updateFavorite));
 
 router.delete("/:id", authenticate, isValidId, ctrlWrapper(ctrl.removeItem));
 

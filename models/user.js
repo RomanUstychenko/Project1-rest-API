@@ -61,6 +61,10 @@ const loginSchema = Joi.object({
 const emailSchema = Joi.object({
   email: Joi.string().pattern(emailRegex).required(),
 });
+// const updateShchema = Joi.object({
+//   name: Joi.string(),
+//   logoURL: Joi.string(),
+// });
 
 const schemas = {
     registerSchema,
