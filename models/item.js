@@ -57,10 +57,10 @@ const addSchema = Joi.object({
 const updSchema = Joi.object({
   itemName: Joi.string(),
   email: Joi.string(),
-  description: Joi.string(),
-  // .empty('').default('default value'),
+  description: Joi.string()
+  .empty('').default('default value'),
   price: Joi.string(),
-  itemImg: Joi.string(),
+  itemImg: Joi.string().empty('').default('default value'),
   section: Joi.string(),
   favorite: Joi.boolean(),
 });
