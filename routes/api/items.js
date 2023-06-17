@@ -22,5 +22,5 @@ upload.single('imageURL'),
 // router.patch("/:id/favorite", authenticate, isValidId, validate(schemas.updateFavoriteScheme), ctrlWrapper(ctrl.updateFavorite));
 
 router.delete("/:id", authenticate, isValidId, ctrlWrapper(ctrl.removeItem));
-
+router.delete("/:category/remove", authenticate, ctrlWrapper(ctrl.removeItemBySection));
 module.exports = router;

@@ -25,10 +25,10 @@ const itemSchema = new Schema(
     section: {
       type: String,
     },
-    favorite: {
-      type: Boolean,
-      default: false,
-    },
+    // favorite: {
+    //   type: Boolean,
+    //   default: false,
+    // },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
@@ -51,7 +51,7 @@ const addSchema = Joi.object({
   price: Joi.string().required(),
   itemImg: Joi.string(),
   section: Joi.string(),
-  favorite: Joi.boolean(),
+  // favorite: Joi.boolean(),
 });
 
 const updSchema = Joi.object({
@@ -65,14 +65,14 @@ const updSchema = Joi.object({
   favorite: Joi.boolean(),
 });
 
-const updateFavoriteScheme = Joi.object({
-  favorite: Joi.boolean().required(),
-});
+// const updateFavoriteScheme = Joi.object({
+//   favorite: Joi.boolean().required(),
+// });
 
 const schemas = {
   addSchema,
   updSchema,
-  updateFavoriteScheme
+  // updateFavoriteScheme
 }
 
 module.exports = {
