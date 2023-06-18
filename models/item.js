@@ -35,7 +35,7 @@ const itemSchema = new Schema(
       required: true,
     }
   },
-  { versionKey: false }
+  // { versionKey: false }
 );
 
 itemSchema.post("save", handleMongooseError);

@@ -14,7 +14,7 @@ const sectionSchema = new Schema(
       required: true,
     }
   },
-  { versionKey: false }
+  // { versionKey: false }
 );
 
 sectionSchema.post("save", handleMongooseError);

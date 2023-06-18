@@ -42,7 +42,7 @@ const userShema = new Schema (
           required: [true, 'Verify token is required'],
         }
       },
-    { versionKey: false }
+    // { versionKey: false }
 );
 
 userShema.post("save", handleMongooseError);
