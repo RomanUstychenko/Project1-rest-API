@@ -24,7 +24,7 @@ const updateUser = async (req, res) => {
         return      
     }
 
-    const logoURL = await uploadImgToCloudinary(req, 150, 150)    
+    const logoURL = await uploadImgToCloudinary(req, 250, 250)    
     // console.log("avatar", avatarURL)
     const user= await User.findByIdAndUpdate({ _id: userId }, { ...req.body, logoURL }, { new: true });
     if (!user) {
