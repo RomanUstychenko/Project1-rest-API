@@ -15,7 +15,7 @@ const updateItem = async (req, res, next) => {
   res.json(result);
 return
 }
-const itemImg = await uploadImgToCloudinary(req, 150, 150)
+const itemImg = await uploadImgToCloudinary(req, 250, 250)
   const result = await Item.findByIdAndUpdate( id , { ...req.body, itemImg}, {new: true});
   if (!result) {
     throw HttpError(404, "Not Found");
