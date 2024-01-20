@@ -9,7 +9,7 @@ const updateUser = async (req, res) => {
         if (!user) {
             throw HttpError(404)
         }
-        const { name, email, verify, logoURL, _id } = user;
+        const { name, email, verify, logoURL, phone, address, description, _id } = user;
         
         res.status(200).json({
             user: {
@@ -17,6 +17,9 @@ const updateUser = async (req, res) => {
                 email,
                 verify,
                 logoURL,
+                phone,
+                address,
+                description,
                 _id
             
             }
@@ -30,7 +33,7 @@ const updateUser = async (req, res) => {
     if (!user) {
         throw HttpError(404)
     }
-    const { name, email, verify, _id } = user;
+    const { name, email, verify, phone, address, description, _id } = user;
 
     res.status(200).json({
         user: {
@@ -38,6 +41,9 @@ const updateUser = async (req, res) => {
             email,
             verify, 
             logoURL,
+            phone,
+            address,
+            description,
             _id
         }
     })    

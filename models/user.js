@@ -21,17 +21,21 @@ const userShema = new Schema (
           required: [true, 'Set password for user'],
           minlenght: 6,
         },
-        subscription: {
+        description: {
           type: String,
-          enum: ["starter", "pro", "business"],
-          default: "starter"
         },
-        token: {
+        phone: {
+          type: String,
+        },
+        address: {
           type: String,
         },
         logoURL: {
           type: String,
           required: true,
+        },
+        token: {
+          type: String,
         },
         verify: {
           type: Boolean,
