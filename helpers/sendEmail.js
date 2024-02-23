@@ -1,14 +1,27 @@
-const sgMail = require("@sendgrid/mail");
-require("dotenv").config();
-
-const { SENGRID_API_KEY } = process.env;
-
-sgMail.setApiKey(SENGRID_API_KEY);
+const nodemailer = require('nodemailer');
 
 const sendEmail = async (data) => {
-  const email = { ...data, from: "roman.ustychenko@gmail.com" };
-  await sgMail.send(email);
-  return true;
+
+const transporter = nodemailer.createTransport({
+  host: 'smtp.ukr.net',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'anarhist_666@ukr.net',
+    pass: 'AxnNOVoOb1CBMKKt'
+  }
+});
+
+transporter.sendMail(data, (error, info) => {
+  if (error) {
+    console.error("error", error);
+    res.status(500).json({ error: 'Помилка відправлення листа підтвердження' });
+  } else {
+    console.log('Email sent: ' + info.response);
+    res.json({ success: true, message: 'Лист підтвердження надіслано' });
+  }
+});
+
 };
 
 module.exports = sendEmail;

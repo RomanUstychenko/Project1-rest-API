@@ -5,6 +5,7 @@ const gravatar = require("gravatar");
 const { nanoid } = require("nanoid");
 
 const { BASE_URL } = process.env;
+
 const register = async (req, res) => {
   const { email, password } = req.body;
 
@@ -23,10 +24,12 @@ const register = async (req, res) => {
     verificationToken,
   });
   const verifyEmail = {
+    from: 'anarhist_666@ukr.net',
     to: email,
     subject: "Verify your email",
-    html: `<a target="_blank" href="${BASE_URL}/api/users/verify/${verificationToken}" >Click verify email</a>`,
+    html: `<a  href="${BASE_URL}/api/users/verify/${verificationToken}" >Click verify email ${BASE_URL}/api/users/verify/${verificationToken}</a`,
   };
+
   await sendEmail(verifyEmail);
 
   res.status(201).json({
@@ -35,6 +38,7 @@ const register = async (req, res) => {
     logoURL: newUser.logoURL,
     verify: newUser.verify,
   });
+
 };
 
 module.exports = register;
