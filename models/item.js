@@ -16,7 +16,7 @@ const itemSchema = new Schema(
       type: String,
     },
     price: {
-      type: String,
+      type: Number,
       required: true,
     },
     itemImg: {
@@ -48,7 +48,7 @@ const addSchema = Joi.object({
   // .required()
   ,
   description: Joi.string(),
-  price: Joi.string().required(),
+  price: Joi.number().required(),
   itemImg: Joi.string(),
   section: Joi.string(),
   // favorite: Joi.boolean(),
@@ -59,7 +59,7 @@ const updSchema = Joi.object({
   email: Joi.string(),
   description: Joi.string()
   .empty('').default('default value'),
-  price: Joi.string(),
+  price: Joi.number(),
   itemImg: Joi.string().empty('').default('default value'),
   section: Joi.string(),
   favorite: Joi.boolean(),
