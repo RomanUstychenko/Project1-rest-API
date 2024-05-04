@@ -4,6 +4,10 @@ const Joi = require("joi");
 
 const sectionSchema = new Schema(
   {
+    idSort: {
+      type: String,
+      required: true,
+    },
     category: {
       type: String,
       required: true,
@@ -23,6 +27,7 @@ const Section = model("section", sectionSchema);
 
 
 const addSectionSchema = Joi.object({
+  idSort: Joi.string().required(),
     category: Joi.string().required(),
 });
 

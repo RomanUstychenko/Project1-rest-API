@@ -3,8 +3,8 @@ const {HttpError, buildQuery} = require("../../helpers");
 
 const removeItemBySection = async (req, res) => {
   const {_id: owner} = req.user;
-  console.log(owner)
-  console.log("req", req)
+  // console.log(owner)
+  // console.log("req", req)
     const { category } = req.params;
 //   const { section } = req.params;
 // console.log("категорі", category)

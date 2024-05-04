@@ -14,6 +14,7 @@ const itemSchema = new Schema(
     },
     description: {
       type: String,
+      required: false,
     },
     price: {
       type: Number,
@@ -25,10 +26,10 @@ const itemSchema = new Schema(
     section: {
       type: String,
     },
-    // favorite: {
-    //   type: Boolean,
-    //   default: false,
-    // },
+    idSort: {
+      type: String,
+      // required: true,
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
@@ -51,7 +52,7 @@ const addSchema = Joi.object({
   price: Joi.number().required(),
   itemImg: Joi.string(),
   section: Joi.string(),
-  // favorite: Joi.boolean(),
+  idSort: Joi.string().required()
 });
 
 const updSchema = Joi.object({
@@ -62,7 +63,7 @@ const updSchema = Joi.object({
   price: Joi.number(),
   itemImg: Joi.string().empty('').default('default value'),
   section: Joi.string(),
-  favorite: Joi.boolean(),
+  idSort: Joi.string()
 });
 
 // const updateFavoriteScheme = Joi.object({
