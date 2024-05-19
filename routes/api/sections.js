@@ -14,7 +14,7 @@ router.get("/", authenticate, ctrlWrapper(ctrl.listSection));
 
 router.post("/", authenticate, validate(schemas.addSectionSchema), ctrlWrapper(ctrl.addSection));
 
-router.put("/:id", authenticate, isValidId, validate(schemas.addSectionSchema), ctrlWrapper(ctrl.updateSection));
+router.patch("/:id", authenticate, isValidId, validate(schemas.addSectionSchema), ctrlWrapper(ctrl.updateSection));
 
 
 router.delete("/:id", authenticate, isValidId, ctrlWrapper(ctrl.removeSection));
