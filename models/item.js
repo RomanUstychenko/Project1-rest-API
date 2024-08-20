@@ -21,8 +21,11 @@ const itemSchema = new Schema(
       required: true,
     },
     itemImg: {
-      type: String,
+          type: String,
     },
+    itemImgId: {
+      type: String,
+},
     section: {
       type: String,
     },
@@ -50,7 +53,12 @@ const addSchema = Joi.object({
   ,
   description: Joi.string(),
   price: Joi.number().required(),
+  // itemImg: Joi.object({
+  //   url: Joi.string(), // Валідація для URL
+  //   publicId: Joi.string(), // Валідація для publicId
+  // }),
   itemImg: Joi.string(),
+  itemImgId: Joi.string(),
   section: Joi.string(),
   idSort: Joi.string().required()
 });
@@ -61,9 +69,15 @@ const updSchema = Joi.object({
   description: Joi.string()
   .empty('').default('default value'),
   price: Joi.number(),
+  // itemImg: Joi.object({
+  //   url: Joi.string().empty('').default('default value'), // Валідація для URL
+  //   publicId: Joi.string().empty('').default('default value'), // Валідація для publicId
+  // }),
   itemImg: Joi.string().empty('').default('default value'),
+  itemImgId: Joi.string().empty('').default('default value'),
   section: Joi.string(),
-  idSort: Joi.string()
+  idSort: Joi.string(),
+  
 });
 
 // const updateFavoriteScheme = Joi.object({

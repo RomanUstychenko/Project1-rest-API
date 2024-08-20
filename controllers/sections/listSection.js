@@ -23,7 +23,7 @@ const listSection = async (req, res, next) => {
     return 0;
   });
 
-  console.log("res", result)
+  // console.log("res", result)
 
   res.json(result);
 };

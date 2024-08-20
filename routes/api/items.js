@@ -5,6 +5,7 @@ const { ctrlWrapper } = require("../../helpers");
 const { validate, isValidId, authenticate, upload } = require("../../middlewares");
 const {schemas} = require("../../models/item");
 
+
 router.get("/live/:owner", ctrlWrapper(ctrl.LivelistItems));
 router.get("/live/:owner/:category", ctrlWrapper(ctrl.getItemBySection));
 router.get("/", authenticate, ctrlWrapper(ctrl.listItems));
@@ -23,4 +24,5 @@ upload.single('imageURL'),
 
 router.delete("/:id", authenticate, isValidId, ctrlWrapper(ctrl.removeItem));
 router.delete("/:category/remove", authenticate, ctrlWrapper(ctrl.removeItemBySection));
+
 module.exports = router;
