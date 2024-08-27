@@ -12,6 +12,10 @@ const sectionSchema = new Schema(
       type: String,
       required: true,
     },
+    menuOptions: {
+      type: String,
+      required: true,
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",
@@ -28,7 +32,8 @@ const Section = model("section", sectionSchema);
 
 const addSectionSchema = Joi.object({
   idSort: Joi.string().required(),
-    category: Joi.string().required(),
+  menuOptions: Joi.string().required(),
+  category: Joi.string().required(),
 });
 
 

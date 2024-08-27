@@ -12,17 +12,18 @@ const getSectionsByName = async (req, res) => {
   result.sort((a, b) => {
     // if (a.category < b.category) return -1;
     // if (a.category > b.category) return 1;
-
+    if (a.menuOptions === b.menuOptions) {
       const idSortA = parseInt(a.idSort);
     const idSortB = parseInt(b.idSort);
-  
-    if (idSortA < idSortB) return -1;
-    if (idSortA > idSortB) return 1;
+    return idSortA - idSortB;
+  }
+    // if (idSortA < idSortB) return -1;
+    // if (idSortA > idSortB) return 1;
   //   return 0;
 
-    return 0;
+  return a.menuOptions === 'kitchen' ? -1 : 1
   });
-  // console.log(result)
+  console.log("result", result)
   if (!result) {
     throw HttpError(404, "Not found");
   }
