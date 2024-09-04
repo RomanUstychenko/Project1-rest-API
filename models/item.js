@@ -20,6 +20,9 @@ const itemSchema = new Schema(
       type: Number,
       required: true,
     },
+    weight: {
+      type: String,
+    },
     itemImg: {
           type: String,
     },
@@ -53,10 +56,7 @@ const addSchema = Joi.object({
   ,
   description: Joi.string(),
   price: Joi.number().required(),
-  // itemImg: Joi.object({
-  //   url: Joi.string(), // Валідація для URL
-  //   publicId: Joi.string(), // Валідація для publicId
-  // }),
+  weight: Joi.string(),
   itemImg: Joi.string(),
   itemImgId: Joi.string(),
   section: Joi.string(),
@@ -69,10 +69,7 @@ const updSchema = Joi.object({
   description: Joi.string()
   .empty('').default('default value'),
   price: Joi.number(),
-  // itemImg: Joi.object({
-  //   url: Joi.string().empty('').default('default value'), // Валідація для URL
-  //   publicId: Joi.string().empty('').default('default value'), // Валідація для publicId
-  // }),
+  weight: Joi.string(),
   itemImg: Joi.string().empty('').default('default value'),
   itemImgId: Joi.string().empty('').default('default value'),
   section: Joi.string(),
