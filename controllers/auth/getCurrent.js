@@ -7,6 +7,7 @@ const getCurrent = (req, res) => {
     address,
     description,
     logoURL, 
+    logoURLId,
     verify } = req.user;
   res.json({
     _id,
@@ -16,6 +17,7 @@ const getCurrent = (req, res) => {
     address,
     description, 
     logoURL,
+    logoURLId,
     verify,
   });
 };

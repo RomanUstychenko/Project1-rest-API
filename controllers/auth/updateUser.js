@@ -9,44 +9,46 @@ const updateUser = async (req, res) => {
         if (!user) {
             throw HttpError(404)
         }
-        const { name, email, verify, logoURL, phone, address, description, _id } = user;
+        // const { name, email, verify, logoURL, phone, address, description, _id } = user;
         
-        res.status(200).json({
-            user: {
-                name,
-                email,
-                verify,
-                logoURL,
-                phone,
-                address,
-                description,
-                _id
+        // res.status(200).json({
+        //     user: {
+        //         name,
+        //         email,
+        //         verify,
+        //         logoURL,
+        //         phone,
+        //         address,
+        //         description,
+        //         _id
             
-            }
-        })  
+        //     }
+        // })  
+        res.status(200).json(user);
         return      
     }
 
-    const logoURL = await uploadImgToCloudinary(req, 250, 250)    
+    const { imageURL, publicId } = await uploadImgToCloudinary(req, 250, 250)    
     // console.log("avatar", avatarURL)
-    const user= await User.findByIdAndUpdate({ _id: userId }, { ...req.body, logoURL }, { new: true });
+    const user = await User.findByIdAndUpdate({ _id: userId }, { ...req.body, logoURL: imageURL, logoURLId: publicId }, { new: true });
     if (!user) {
         throw HttpError(404)
     }
-    const { name, email, verify, phone, address, description, _id } = user;
+    // const { name, email, verify, phone, address, description, _id } = user;
 
-    res.status(200).json({
-        user: {
-            name,
-            email,
-            verify, 
-            logoURL,
-            phone,
-            address,
-            description,
-            _id
-        }
-    })    
+    // res.status(200).json({
+    //     user: {
+    //         name,
+    //         email,
+    //         verify, 
+    //         logoURL,
+    //         phone,
+    //         address,
+    //         description,
+    //         _id
+    //     }
+    // })    
+    res.status(200).json(user);
 }
 
 module.exports = updateUser;

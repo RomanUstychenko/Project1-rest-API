@@ -34,6 +34,9 @@ const userShema = new Schema (
           type: String,
           required: true,
         },
+        logoURLId: {
+          type: String,
+    },
         token: {
           type: String,
         },

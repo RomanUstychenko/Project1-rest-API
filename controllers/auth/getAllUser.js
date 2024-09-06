@@ -9,7 +9,7 @@ const getAllUser = async (req, res) => {
         throw HttpError(401, "No users")
             };
 
-      const result = users.map(({_id, name, logoURL, phone, address, description}) => ({_id, name, logoURL, phone, address, description}));
+      const result = users.map(({_id, name, logoURL, logoURLId, phone, address, description}) => ({_id, name, logoURL, logoURLId, phone, address, description}));
     
     res.json(
         result,
