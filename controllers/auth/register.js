@@ -5,10 +5,11 @@ const gravatar = require("gravatar");
 const { nanoid } = require("nanoid");
 
 const { BASE_URL } = process.env;
+const { NODEMAILER_USER } = process.env;
 
 const register = async (req, res) => {
   const { email, password } = req.body;
-
+console.log("email", email)
   const user = await User.findOne({ email });
   if (user) {
     throw HttpError(409, "Email in use");
@@ -24,7 +25,7 @@ const register = async (req, res) => {
     verificationToken,
   });
   const verifyEmail = {
-    from: 'anarhist_666@ukr.net',
+    from: `"QR Menu 👻" <${NODEMAILER_USER}>`,
     to: email,
     subject: "Verify your email",
     html: `
