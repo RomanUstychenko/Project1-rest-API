@@ -1,8 +1,8 @@
-const {Item} = require("../../models/item")
+const { Item } = require("../../models/item");
 
 const addItem = async (req, res) => {
-  const {_id: owner} = req.user;
-  const result = await Item.create({...req.body, owner})
+  const { _id: owner } = req.user;
+  const result = await Item.create({ ...req.body, owner });
   res.status(201).json(result);
 };
 

@@ -2,33 +2,29 @@ const { Schema, model } = require("mongoose");
 const { handleMongooseError } = require("../helpers");
 const Joi = require("joi");
 
-const sectionSchema = new Schema(
-  {
-    idSort: {
-      type: String,
-      required: true,
-    },
-    category: {
-      type: String,
-      required: true,
-    },
-    menuOptions: {
-      type: String,
-      required: true,
-    },
-    owner: {
-      type: Schema.Types.ObjectId,
-      ref: "user",
-      required: true,
-    }
+const sectionSchema = new Schema({
+  idSort: {
+    type: String,
+    required: true,
   },
-  // { versionKey: false }
-);
+  category: {
+    type: String,
+    required: true,
+  },
+  menuOptions: {
+    type: String,
+    required: true,
+  },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "user",
+    required: true,
+  },
+});
 
 sectionSchema.post("save", handleMongooseError);
 
 const Section = model("section", sectionSchema);
-
 
 const addSectionSchema = Joi.object({
   idSort: Joi.string().required(),
@@ -36,13 +32,11 @@ const addSectionSchema = Joi.object({
   category: Joi.string().required(),
 });
 
-
-
 const schemas = {
-    addSectionSchema,
-}
+  addSectionSchema,
+};
 
 module.exports = {
-    Section,
-  schemas
+  Section,
+  schemas,
 };

@@ -1,4 +1,4 @@
-const {Item} = require("../../models/item");
+const { Item } = require("../../models/item");
 const { HttpError } = require("../../helpers");
 
 const removeItem = async (req, res) => {

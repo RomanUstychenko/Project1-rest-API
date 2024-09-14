@@ -1,34 +1,24 @@
-const {Section} = require("../../models/sections")
-const {HttpError} = require("../../helpers");
+const { Section } = require("../../models/sections");
+const { HttpError } = require("../../helpers");
 
 const getSectionsByName = async (req, res) => {
-  const {owner} = req.params;
-  // const { owner} = req.user;
-  // console.log("req", name)
-  // console.log("req.user", req.user)
-  const result = await Section.find({owner})
-  
-  // .limit(limit)
+  const { owner } = req.params;
+
+  const result = await Section.find({ owner });
+
   result.sort((a, b) => {
-    // if (a.category < b.category) return -1;
-    // if (a.category > b.category) return 1;
     if (a.menuOptions === b.menuOptions) {
       const idSortA = parseInt(a.idSort);
-    const idSortB = parseInt(b.idSort);
-    return idSortA - idSortB;
-  }
-    // if (idSortA < idSortB) return -1;
-    // if (idSortA > idSortB) return 1;
-  //   return 0;
+      const idSortB = parseInt(b.idSort);
+      return idSortA - idSortB;
+    }
 
-  return a.menuOptions === 'kitchen' ? -1 : 1
+    return a.menuOptions === "kitchen" ? -1 : 1;
   });
-  console.log("result", result)
   if (!result) {
     throw HttpError(404, "Not found");
   }
   res.json(result);
 };
-
 
 module.exports = getSectionsByName;

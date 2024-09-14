@@ -1,4 +1,4 @@
-const {Section} = require("../../models/sections");
+const { Section } = require("../../models/sections");
 const { HttpError } = require("../../helpers");
 
 const removeSection = async (req, res) => {

@@ -9,12 +9,11 @@ const { NODEMAILER_USER } = process.env;
 
 const register = async (req, res) => {
   const { email, password } = req.body;
-console.log("email", email)
   const user = await User.findOne({ email });
   if (user) {
     throw HttpError(409, "Email in use");
   }
- 
+
   const hashPassword = await bcryptjs.hash(password, 10);
   const logoURL = gravatar.url(email);
   const verificationToken = nanoid();
@@ -48,7 +47,6 @@ console.log("email", email)
     logoURL: newUser.logoURL,
     verify: newUser.verify,
   });
-
 };
 
 module.exports = register;

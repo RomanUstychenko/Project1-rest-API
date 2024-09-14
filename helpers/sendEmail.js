@@ -1,41 +1,28 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 
 const { NODEMAILER_USER } = process.env;
 const { NODEMAILER_PASS } = process.env;
 
-
 const sendEmail = async (data) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: NODEMAILER_USER,
+      pass: NODEMAILER_PASS,
+    },
+  });
 
-const transporter = nodemailer.createTransport({
-  // host: 'smtp.ethereal.email',
-  // port: 587,
-  // secure: false,
-  service: 'gmail',
-  auth: {
-    user: NODEMAILER_USER,
-    pass: NODEMAILER_PASS
-  }
-});
-
-// transporter.sendMail(data, (error, info) => {
-//   if (error) {
-//     console.error("error", error);
-//     res.status(500).json({ error: 'Помилка відправлення листа підтвердження' });
-//   } else {
-//     console.log('Email sent: ' + info.response);
-//     res.json({ success: true, message: 'Лист підтвердження надіслано' });
-//   }
-// });
-transporter.sendMail(data, (error, info) => {
-  if (error) {
-    console.error("error", error);
-    res.status(500).json({ error: 'Помилка відправлення листа підтвердження' });
-  } else {
-    console.log('Email sent: ' + info.response);
-    res.json({ success: true, message: 'Лист підтвердження надіслано' });
-  }
-});
-
+  transporter.sendMail(data, (error, info) => {
+    if (error) {
+      console.error("error", error);
+      res
+        .status(500)
+        .json({ error: "Помилка відправлення листа підтвердження" });
+    } else {
+      console.log("Email sent: " + info.response);
+      res.json({ success: true, message: "Лист підтвердження надіслано" });
+    }
+  });
 };
 
 module.exports = sendEmail;

@@ -1,21 +1,22 @@
 const getCurrent = (req, res) => {
   const {
-    _id, 
-    email, 
+    _id,
+    email,
     name,
     phone,
     address,
     description,
-    logoURL, 
+    logoURL,
     logoURLId,
-    verify } = req.user;
+    verify,
+  } = req.user;
   res.json({
     _id,
     email,
     name,
     phone,
     address,
-    description, 
+    description,
     logoURL,
     logoURLId,
     verify,
